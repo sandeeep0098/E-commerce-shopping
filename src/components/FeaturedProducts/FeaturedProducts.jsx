@@ -6,8 +6,8 @@ const FeaturedProducts = ({ type }) => {
   const data = [
     {
       id: 1,
-      img: 'https://www.pexels.com/photo/clothing-store-window-15271836/',
-      img2: "https://www.google.com/search?q=shopping+model+images&sxsrf=APwXEddS_NvALP93Z32tMGAeDFo2GxoWWQ:1684285011661&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjB1sfOkvv-AhVScWwGHV5UDtoQ_AUoAXoECAEQAw&biw=1440&bih=821&dpr=1#imgrc=fd49upEPP7Lv2M",
+      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      img2: "https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=1600",
       title: "Long Seelve Grapic T-shirt",
       isNew: true,
       oldPrice: 19,
@@ -15,8 +15,8 @@ const FeaturedProducts = ({ type }) => {
     },
     {
       id: 2,
-      img: "https://www.myntra.com/shirts/herenow/herenow-men-black-slim-fit-floral-printed-casual-shirt/18060960/buy",
-      img2: "https://www.myntra.com/tops/qomn/qomn-blue-print-mandarin-collar-empire-pure-cotton-longline-top/19524874/buy",
+      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      img2: "https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=1600",
       title: "Long Seelve Grapic T-shirt",
       isNew: true,
       oldPrice: 19,
@@ -24,8 +24,8 @@ const FeaturedProducts = ({ type }) => {
     },
     {
       id: 3,
-      img: "https://www.myntra.com/shirts/herenow/herenow-men-black-slim-fit-floral-printed-casual-shirt/18060960/buy",
-      img2: "https://www.myntra.com/tops/qomn/qomn-blue-print-mandarin-collar-empire-pure-cotton-longline-top/19524874/buy",
+      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      img2: "https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=1600",
       title: "Long Seelve Grapic T-shirt",
       isNew: true,
       oldPrice: 19,
@@ -33,8 +33,8 @@ const FeaturedProducts = ({ type }) => {
     },
     {
       id: 4,
-      img: "https://www.myntra.com/shirts/herenow/herenow-men-black-slim-fit-floral-printed-casual-shirt/18060960/buy",
-      img2: "https://www.myntra.com/tops/qomn/qomn-blue-print-mandarin-collar-empire-pure-cotton-longline-top/19524874/buy",
+      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      img2: "https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=1600",
       title: "Long Seelve Grapic T-shirt",
       isNew: true,
       oldPrice: 19,

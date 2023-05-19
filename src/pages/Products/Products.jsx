@@ -28,7 +28,7 @@ const Products = () => {
         </div>
         <div className="filterItem">
           <h2>Filter By Price</h2>
-          <div className="inputItem"></div>
+          {/* <div className="inputItem"></div> */}
           <span>0</span>
           <input
             type="range"
@@ -44,8 +44,8 @@ const Products = () => {
             <input
               type="radio"
               name="price"
-              id="asc"
-              value="asc"
+               id="asc"
+               value="asc"
               onChange={(e) => setSort("asc")}
             />
             <label htmlFor="asc">price (Lowest First)</label>
@@ -53,9 +53,9 @@ const Products = () => {
           <div className="inputItem">
             <input
               type="radio"
-              name="price"
-              id="desc"
-              value="desc"
+               name="price"
+               id="desc"
+               value="desc"
               onChange={(e) => setSort("asc")}
             />
             <label htmlFor="desc">price (Highest First)</label>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import "./Product.scss";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -9,9 +9,10 @@ const Product = () => {
   const [quantity, setquantity] = useState(1);
 
   const images = [
-    "https://images.pexels.com/photos/972804/pexels-photo-972804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/15353288/pexels-photo-15353288.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.unsplash.com/photo-1625910513399-c9fcba54338c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    "https://images.unsplash.com/photo-1625910513413-c23b8bb81cba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
   ];
+
   return (
     <div className="product">
       <div className="left">
@@ -25,7 +26,7 @@ const Product = () => {
       </div>
       <div className="right">
         <h1>Title</h1>
-        <span className="price">$199</span>
+        <span className="price">₹799</span>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, totam
           quasi saepe ab itaque cum aperiam est? Voluptatibus voluptate ipsam,

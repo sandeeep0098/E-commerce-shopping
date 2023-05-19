@@ -1,6 +1,13 @@
-.list{
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap;
 
+.error{
+    align-items: center;
+    color: red;
+    font-weight: 500;
+    font-size: 24px;
+}
+.list{
+    display: flex;
+    justify-content: space-between;
+    
+    flex-wrap: wrap;
 }

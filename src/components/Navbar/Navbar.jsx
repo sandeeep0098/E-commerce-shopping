@@ -16,11 +16,11 @@ const Navbar = () => {
       <div className="wrapper">
         <div className="left">
           <div className="item">
-            <img src="/img/en.png" alt="" />
+            <img src="/img/indflag.png" alt="" />
             <KeyboardArrowDownIcon />
           </div>
           <div className="item">
-            <span>USD</span>
+            <span>IND</span>
             <KeyboardArrowDownIcon />
           </div>
           <div className="item">

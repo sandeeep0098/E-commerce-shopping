@@ -1,67 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./List.scss";
 import Card from "../Card/Card";
 
 const List = () => {
-  const data = [
-    {
-      id: 1,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      img2: "https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 2,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  const [featuredData, setFeaturedData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState(null);
 
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 3,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  useEffect(() => {
+    const fetchFeaturedDAta = async () => {
+      const respone = await fetch(
+        "https://lamastore-9e4d0-default-rtdb.firebaseio.com/FeaturedData.json"
+      );
 
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 4,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      if (!respone.ok) {
+        throw new Error("Something Went Wrong!");
+      }
+      const responseData = await respone.json();
 
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 4,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      const loadedFeaturedData = [];
 
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 4,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      for (const key in responseData) {
+        loadedFeaturedData.push({
+          id: key,
+          img: responseData[key].img,
+          img2: responseData[key].img2,
+          isNew: responseData[key].isNew,
+          oldPrice: responseData[key].oldPrice,
+          price: responseData[key].price,
+          title: responseData[key].title,
+        });
+        setFeaturedData(loadedFeaturedData);
+        setIsLoading(false);
+      }
+    };
+    fetchFeaturedDAta().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
+  }, []);
 
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-  ];
+  if (isLoading) {
+    return (
+      <section className="loading">
+        <p>Fetching Data From Backend....</p>
+      </section>
+    );
+  }
+  if (httpError) {
+    return (
+      <section className="error">
+        <p>{httpError}</p>
+      </section>
+    );
+  }
+
   return (
     <div className="list">
-      {data?.map((item) => (
+      {featuredData?.map((item) => (
         <Card item={item} key={item.id} />
       ))}
     </div>

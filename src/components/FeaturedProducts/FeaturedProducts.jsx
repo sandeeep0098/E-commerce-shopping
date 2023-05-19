@@ -1,46 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FeaturedProducts.scss";
 import Card from "../Card/Card";
+import { useEffect } from "react";
 
 const FeaturedProducts = ({ type }) => {
-  const data = [
-    {
-      id: 1,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      img2: "https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 2,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 3,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 4,
-      img: "https://images.pexels.com/photos/818992/pexels-photo-818992.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      
-      title: "Long Seelve Grapic T-shirt",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-  ];
+  const [featuredData, setFeaturedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState(null);
+
+  useEffect(() => {
+    const fetchFeaturedDAta = async () => {
+      const response = await fetch(
+        "https://lamastore-9e4d0-default-rtdb.firebaseio.com/FeaturedData.json"
+      );
+      if (!response.ok) {
+        throw new Error("Something Went Wrong");
+      }
+      const responseData = await response.json();
+
+      const loadedFeaturedData = [];
+
+      for (const key in responseData) {
+        loadedFeaturedData.push({
+          id: key,
+          img: responseData[key].img,
+          img2: responseData[key].img2,
+          isNew: responseData[key].isNew,
+          oldPrice: responseData[key].oldPrice,
+          price: responseData[key].price,
+          title: responseData[key].title,
+        });
+        setFeaturedData(loadedFeaturedData);
+        setIsLoading(false);
+      }
+    };
+    fetchFeaturedDAta().catch((error) => {
+      setHttpError(error.message);
+      setIsLoading(false);
+    });
+  });
+
+  if (isLoading) {
+    return (
+      <section className="loading">
+        <p>Fetching Data From Backend.....</p>
+      </section>
+    );
+  }
+  if (httpError) {
+    return <section className="error">{httpError}</section>;
+  }
+
+  const featuredDataList = featuredData.map((item) => (
+    <Card item={item} key={item.id} />
+  ));
 
   return (
     <div className="featuredProducts">
@@ -53,11 +66,7 @@ const FeaturedProducts = ({ type }) => {
           velit assumenda ad vitae impedit?
         </p>
       </div>
-      <div className="bottom">
-        {data.map((item) => (
-          <Card item={item} key={item.id} />
-        ))}
-      </div>
+      <div className="bottom">{featuredDataList}</div>
     </div>
   );
 };

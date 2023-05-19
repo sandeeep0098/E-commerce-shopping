@@ -55,7 +55,7 @@ const Navbar = () => {
             <FavoriteBorderOutlinedIcon />
             <div className="cartIcon" onClick={()=>setOpenCart(!openCart)}>
               <ShoppingCartOutlinedIcon />
-              <span>0</span>
+              <span>2</span>
             </div>
           </div>
         </div>

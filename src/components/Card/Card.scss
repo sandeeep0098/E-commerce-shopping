@@ -1,8 +1,9 @@
-.Card {
+.card {
   width: 280px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 50px;
 
   .image {
     width: 100%;
@@ -22,9 +23,11 @@
       object-fit: cover;
       position: absolute;
     }
+
     .mainImg {
       z-index: 1;
     }
+
     span {
       position: absolute;
       top: 5px;
@@ -37,20 +40,26 @@
       font-size: 12px;
     }
   }
+
   h2 {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 0;
   }
+
   .prices {
+    margin-top: -12px;
     display: flex;
     gap: 20px;
+
     h3 {
       font-size: 18px;
       font-weight: 500;
 
       &:first-child {
-        text-decoration: line-through;
         color: gray;
+        text-decoration: line-through;
       }
     }
   }
